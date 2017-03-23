@@ -1,0 +1,56 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Einleitung}{1}{section.1}
+\contentsline {section}{\numberline {2}Theoretische Grundlagen}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Wechselwirkung von Photonen mit Materie}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Nachweis der $\gamma $-Strahlung mithilfe des Szintillationsz\IeC {\"a}hlers}{2}{subsection.2.2}
+\contentsline {paragraph}{Szintillator}{2}{section*.3}
+\contentsline {paragraph}{Photomultiplier}{3}{section*.4}
+\contentsline {subsection}{\numberline {2.3}Zerfallsschema von Cobalt}{3}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Lebensdauer und Linienbreite}{4}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}Dopplerverbreiterung}{4}{subsubsection.2.4.1}
+\contentsline {subsection}{\numberline {2.5}Resonanzabsorption}{5}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}M\IeC {\"o}\IeC {\ss }bauer-Effekt}{6}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.7}Gittermodelle}{7}{subsection.2.7}
+\contentsline {subsubsection}{\numberline {2.7.1}Einsteinmodell}{7}{subsubsection.2.7.1}
+\contentsline {subsubsection}{\numberline {2.7.2}Debyemodell}{8}{subsubsection.2.7.2}
+\contentsline {subsection}{\numberline {2.8}Modifikationen des \IeC {\"U}bergangsspektrums}{10}{subsection.2.8}
+\contentsline {subsubsection}{\numberline {2.8.1}Isomerieverschiebung }{10}{subsubsection.2.8.1}
+\contentsline {subsubsection}{\numberline {2.8.2}Hyperfeinstrukturaufspaltung}{11}{subsubsection.2.8.2}
+\contentsline {subsection}{\numberline {2.9}Ger\IeC {\"a}te und Signalformen}{12}{subsection.2.9}
+\contentsline {paragraph}{Detektor}{12}{section*.5}
+\contentsline {paragraph}{Main Amplifier (MA)}{12}{section*.6}
+\contentsline {paragraph}{Multi Channel Analyzer}{12}{section*.7}
+\contentsline {paragraph}{Single Channel Analyzer}{12}{section*.8}
+\contentsline {paragraph}{Linear Gate und Delay Unit}{12}{section*.9}
+\contentsline {section}{\numberline {3}Versuchsaufbau und -Durchf\IeC {\"u}hrung }{14}{section.3}
+\contentsline {subsection}{\numberline {3.1}Eichung des MCA und Setzen des Energiefensters}{14}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Aufbau der Schaltung}{14}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Untergrundmessungen}{16}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Hauptmessungen}{16}{subsection.3.4}
+\contentsline {section}{\numberline {4}Auswertung}{17}{section.4}
+\contentsline {subsection}{\numberline {4.1}Energieeichung des MCA}{17}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Berechnung des Compton-Untergrunds}{19}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Abschw\IeC {\"a}chung durch Plexiglas}{21}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Umrechnung der Messwerte}{21}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Einlinienabsorber}{21}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Isomerieverschiebung}{22}{subsubsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.2}Linienbreite und Lebensdauer}{22}{subsubsection.4.5.2}
+\contentsline {paragraph}{Berechnung aus dem Lorentz-Anteil des Voigt-Fits}{23}{section*.14}
+\contentsline {paragraph}{Berechnung aus der Linienbreite mit Hilfe der effektiven Absorberdicke}{23}{section*.15}
+\contentsline {subsubsection}{\numberline {4.5.3}Debye-Waller-Faktor}{24}{subsubsection.4.5.3}
+\contentsline {subsection}{\numberline {4.6}Sechslinienabsorber}{25}{subsection.4.6}
+\contentsline {subsubsection}{\numberline {4.6.1}Hyperfeinaufspaltung}{27}{subsubsection.4.6.1}
+\contentsline {subsubsection}{\numberline {4.6.2}Isomerieverschiebung}{27}{subsubsection.4.6.2}
+\contentsline {subsubsection}{\numberline {4.6.3}Magnetisches Moment}{27}{subsubsection.4.6.3}
+\contentsline {subsubsection}{\numberline {4.6.4}Magnetische Feldst\IeC {\"a}rke}{28}{subsubsection.4.6.4}
+\contentsline {section}{\numberline {5}Zusammenfassung und Diskussion }{29}{section.5}
+\contentsline {subsection}{\numberline {5.1}Eichung und Korrekturmessungen}{29}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Einlinienabsorber}{29}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Sechslinienabsorber}{30}{subsection.5.3}
+\contentsline {section}{\numberline {6}Anhang}{31}{section.6}
+\contentsline {subsection}{\numberline {6.1}Laborbuch}{31}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Spektren}{33}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Sourcecode}{33}{subsection.6.3}
+\contentsline {section}{Literatur}{55}{section*.39}

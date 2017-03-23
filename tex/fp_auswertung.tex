@@ -1,0 +1,339 @@
+\section{Auswertung}
+
+Zur Auswertung wurde die Programmiersprache R verwendet. Die Skripte zur Auswertung sind im Anhang unter Abschnitt \ref{code} zu finden.
+\subsection{Energieeichung des MCA}
+
+Zur Identifizierung des $14,4\,\mathrm{keV}$-Peaks von Eisen wird eine Energieeichung an Hand der bekannten Peaks verschiedener Elemente, wie in \ref{Aufbau} beschrieben, durchgeführt. An die beobachteten Peaks werden Gaußfunktionen folgender Form gefittet:
+
+\begin{align}
+	r_\mathrm{Gauss}(x)&=C+\frac{N}{\sqrt{2\pi}\sigma}\exp(-\frac{(x-\mu)^2}{2\sigma^2})\text{ .}
+\end{align}
+
+Ein beispielhafter Fit ist in Abbildung \ref{Beispiel} für die $K_\alpha$-Linien von Silber dargestellt.
+
+\gra{AgEichung}{Beispielhafte Auswertung der $\mathrm{K}_\alpha$-Linie von Silber \label{Beispiel}}
+
+Bei einigen Spektren überlappen sich die Peaks, sodass hier doppelte Gaußfits gefittet wurden. Dies ist beispielhaft in Abbildung \ref{DoppelGauss} für Terbium dargestellt. Die Spektren der restlichen Elemente mit zugehörigen Fits sowie der Code in R sind im Anhang unter Abschnitt \ref{spektren} und \ref{code} zu finden.
+
+\gra{TbEichung}{Doppel-Gaußfit zur Auswertung der $\mathrm{K}_\alpha$-Linie von Terbium \label{DoppelGauss} }
+
+Die Fitparameter der einzelnen Peaks, die für die Energieeichung verwendet wurden, sind in \ref{tab:eichung} aufgestellt.
+
+\begin{table}
+	\centering
+	\begin{tabular}{l|ccccc}
+		Material&$C\,/\,\si{Counts}$&$N\,/\,\cdot10^6\,\si{(Counts\cdot Channels)}$&$\mu\,/\,\si{Channels}$&$\sigma\,/\,\si{Channels}$&$\frac{\chi^2}{\mathrm{ndf}}$\\\hline
+		Ba&$2369\pm4$&$2,714\pm0,011$&$418,56\pm0,12$&$38,4\pm1,4$&$1,84$\\
+		Ag&$733\pm4$&$1,64\pm0,02$&$301,7\pm0,4$&$32,8\pm0,4$&$208,9$\\
+		Mo&$682\pm24$&$0,545\pm0,005$&$237,8\pm0,2$&$26,5\pm 0,2$&$23,4$\\
+		Rb&$204\pm11$&$0,246\pm0,003$&$178,96\pm0,16$&$21,86\pm0,18$&$8\pm5$\\
+		Tb&$992\pm11$&$2,541\pm0,018$&$588,5\pm0,3$&$47,11\pm0,17$&$9,39$\\
+	\end{tabular}
+	\caption{Fitdaten der Gaußfits zur Eichung}
+	\label{tab:eichung}
+\end{table}
+
+Relevant für die Energieeichung ist dabei der Mittelwert, der die Energie des Peaks, die der Anleitung entnommen wird, dem Kanal zuordnet. Als Fehler wird sinnvoller Weise die halbe Standardabweichung gewählt und nicht der Fehler auf den Fitparameter, da dieser nicht dem statistischen Fehler entspricht. Die Werte, die direkt als Punkte für die Eichgerade verwendet wurden, sind in Tabelle \ref{tab:eichung1} dargestellt. 
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|cc}
+		Material&$\mu\,/\,\si{Channels}$&Energie$\,/\,\si{keV}$\\\hline
+		Ba&$418,56\pm19$&$32,06$\\
+		Ag&$301,7\pm16$&$22,10$\\
+		Mo&$237,8\pm13$&$17,44$\\
+		Rb&$178,96\pm11$&$13,37$\\
+		Tb&$588,5\pm24$&$44,2$\\
+	\end{tabular}
+	\caption{Fitdaten der Gaußfits zur Eichung}
+	\label{tab:eichung1}
+\end{table}
+
+
+In Abbildung \ref{LFEichung} sind die einzelnen Kanäle gegen die bekannten Energien aufgetragen, wobei die halbe Standardabweichung als y-Fehler aufgetragen wurden. Innerhalb dieses Fehlers liegen alle Punkte auf der Eichgeraden, sodass sich nun leicht die erwartete Position des Eisenpeaks ablesen lässt.
+
+\gra{Eichung}{Linearer Fit zur Energiekalibrierung des MCA \label{LFEichung}}
+
+ Die Position des $14,4\,\mathrm{keV}$-Eisenpeak ergibt sich an Hand von \ref{LFEichung} damit zu $195\pm 7$, wobei sich der Fehler mit Gauß'scher Fehlerfortpflanzung aus den Fehlern auf die Fitparameter ergibt.
+
+
+\subsection{Berechnung des Compton-Untergrunds}
+
+Ein Effekt, welcher in die Messungen mit einfließt, ist der Compton-Untergrund. Dieser entsteht durch Photonen aus Zerfällen höherer Energien, welche einen Teil ihrer Energie durch Compton-Streuung an Elektronen abgeben und anschließend Energien innerhalb des $14.4\,\si{keV}$-Energiefensters haben. Um diesen Effekt auszugleichen wird aus Messungen mit Aluminiumplatten die Compton-Zählrate bestimmt. Hierzu wird die Zählrate der Quelle mit Abschirmung durch Aluminiumplatten für verschiedene Plattendicken gemessen. Die daraus resultierende Kurve besteht zum einen aus dem Beitrag des Compton-Untergrunds und zum anderen aus dem Beitrag der exponentiellen Abschwächung durch Absorption in den Aluminiumplatten.\\
+
+Um die einzelnen Beiträge zu bestimmen, wird ein doppelter Exponentialfit
+\begin{align}
+	r(d)&=A\cdot e^{-\lambda d}+B\cdot e^{-\mu d}
+\end{align}
+an die Messdaten gelegt, wobei $A\cdot e^{-\lambda d}$ den Beitrag des Compton-Untergrunds und $B\cdot e^{-\mu d}$ den Beitrag der Materialabschwächung darstellt. Aus dem Beitrag des Compton-Untergrundes wird nun die Compton-Zählrate für die Dicke $d=0$ extrapoliert:
+
+\begin{align}
+	r_\text{Untergrund}&=r(0)=A\cdot e^{-\lambda 0}=A\text{ .}\label{eq:dexpfit}
+\end{align}
+
+\graX[1]{compton-untergrund}{Messung zur Bestimmung des Compton-Untergrunds}{Messung der Transmission durch Aluminium in Abhängigkeit der Schichtdicke zur Bestimmung des Compton-Untergrunds\label{fig:comptonuntergrund}}
+
+Wir erhalten nun bei der Messung die in Abbildung \ref{fig:comptonuntergrund} dargestellten Messdaten. Die $y$-Fehler wurden aus den Poissonfehlern der Zählmessung berechnet: $s_r=r\cdot\frac{s_\text{Counts}}{\mathrm{Counts}}$. Für die Messung der Schichtdicken wurde ein Fehler von $s_{d,i}=0,1\,\si{mm}$ für eine Aluminiumplatte und damit $s=\sqrt{m}\cdot s_{d,i}$ mit der Anzahl $m$ der jeweils verwendeten Aluminiumplatten. Bei der Durchführung des Fits an Gleichung \ref{eq:dexpfit} erhalten wir folgende Parameter:
+
+\begin{align*}
+		A&=18,5\pm0,3\,\si{s^{-1}}\text{ ,}\\
+		B&=39,6\pm0,8\,\si{s^{-1}}\text{ ,}\\
+		\lambda&=0,043\pm0,002\,\si{mm^{-1}}\text{ ,}\\
+		\mu&=2,06\pm0,07\,\si{mm^{-1}}\\
+		\ \\
+		\text{mit }\frac{\chi^2}{\mathrm{ndf}}&=5,7\text{ .}
+\end{align*}
+
+Daraus erhalten wir nun als Ergebnis für den Compton-Untergrund:
+\begin{align}
+	r_\text{Untergrund}&=(18,5\pm0,3)\,\si{s^{-1}}\text{ .}
+\end{align}
+
+Für die Berechnung des Compton-Untergrunds wurde das in Anhang \ref{code} angehängte Skript \code{Compton-} \code{Untergrund.R} verwendet.
+
+\subsection{Abschwächung durch Plexiglas}
+
+Die Absorberproben liegen in Plexiglashalterungen vor. Da das Plexiglas die $\gamma$-Strahlung abschwächt, muss zur Korrektur der Messdaten die Abschwächung durch das Plexiglas berechnet werden. Hierzu liegt eine leere Plexiglashalterung vor, mit welcher eine Messung der Zählraten der Quelle durchgeführt wird. Diese Messung wird ebenso ohne Plexiglashalterung durchgeführt. Aus diesen beiden Messungen wird nun das Verhältnis zwischen der Zählrate mit und ohne Plexiglas und daraus der Korrekturfaktor $k_\text{Plexi}$ bestimmt. Dazu wurde das Skript \code{Plexiglas.R} aus Anhang \ref{code} verwendet.\\
+
+Dabei wurde folgendes Ergebnis erzielt:
+\begin{align}
+	k_\text{Plexi}=\frac{r_\text{leer}}{r_\text{plexi}}&=1,243\pm0,010\text{ .}
+\end{align}
+
+\subsection{Umrechnung der Messwerte}
+Die Geschwindigkeiten werden mit Hilfe der folgenden Formel in Energien umgerechnet:
+\begin{align}
+	E=E_0\frac{v}{c}\text{ .}\label{vtoE}
+\end{align}
+Aus den gemessenen Zählraten werden mit Hilfe des Abschwächungsfaktors und des Compton-Untergrunds die tatsächlichen Transmissionsraten bestimmt:
+\begin{align}
+	r&=k_\mathrm{Plexi}\cdot r_\mathrm{Mess}-r_\mathrm{Untergrund}\text{ .}
+\end{align}
+
+\subsection{Einlinienabsorber}\label{einlinien}
+\graX[1]{einlinien}{Messung der Transmission durch die Edelstahlprobe (Einlinienabsorber)}{Messung der Transmission durch die Edelstahlprobe (Einlinienabsorber). Hier ist die Zählrate $r$ über die Geschwindigkeit $v$ aufgetragen. \label{fig:einlinien}}
+Bei den Messungen für den Einlinienabsorber wurden die in Abbildung \ref{fig:einlinien} aufgetragenen Daten aufgenommen. An die Daten wurde zunächst eine Gaußfunktion
+\begin{align}
+	r_\mathrm{Gauss}(v)&=C+\frac{N}{\sqrt{2\pi}\sigma}\exp(-\frac{(v-\mu)^2}{2\sigma^2})\text{ ,}
+\end{align}
+eine Lorentzfunktion 
+\begin{align}
+	r_\mathrm{Lorentz}(v)&=C+\frac{N}{2\pi}\frac{\gamma}{\left(v-\mu\right)^2+\frac14\gamma^2}
+\end{align}
+und anschließend eine Voigtfunktion 
+\begin{align}
+	r_\mathrm{Voigt}(v)&=\left(r_\mathrm{Gauss}*r_\mathrm{Lorentz}\right)(v)
+\end{align}
+gefittet. Dabei wurden folgende Fitparameter ermittelt:
+\begin{align*}
+	&\mathbf{r_\textbf{Gauss}}\textbf{:}&&\mathbf{r_\textbf{Lorentz}}\textbf{:}&&\mathbf{r_\textbf{Voigt}}\textbf{:}\\
+	C&=(12,76\pm0,05)\,\si{s^{-1}}&C&=(12,94\pm0,06)\,\si{s^{-1}}&C&=(12,84\pm0,08)\,\si{s^{-1}}
+	\\N&=-(2,75\pm0,13)\,\si{mms^{-2}}&N&=-(3,9\pm0,2)\,\si{mms^{-2}}&N&=-(3,2\pm0,4)\,\si{mms^{-2}}
+	\\\mu&=(0,204\pm0,013)\,\si{mms^{-1}}&\omega&=(0,186\pm0,012)\,\si{mms^{-1}}&\mu&=(0,201\pm0,013)\,\si{mms^{-1}}
+	\\\sigma&=(0,303\pm0,014)\,\si{mms^{-1}}&\gamma&=(0,60\pm0,04)\,\si{mms^{-1}}&\sigma&=(0,22\pm0,05)\,\si{mms^{-1}}
+	\\&&&&\gamma&=(0,13\pm0,08)\,\si{mms^{-1}}\\\ 
+	\\&\frac{\chi^2}{\mathrm{ndf}}=0,55&&\frac{\chi^2}{\mathrm{ndf}}=0,56&&\frac{\chi^2}{\mathrm{ndf}}=0,55
+\end{align*}
+
+Zur Auswertung des Einlinienabsorbers wurden die Skripte \code{Einlinien.R}, \code{Absorberdicke.R} und \code{Debye-Waller.R} verwendet (siehe Anhang \ref{code}).
+
+\subsubsection{Isomerieverschiebung}
+Die in Abschnitt \ref{Isomerie} beschriebene Isomerieverschiebung kann aus der Position des Peaks bestimmt werden. Die Isomerieverschiebung wird durch die Abweichung des Peaks von der Energie $E_0$, also der Geschwindigkeit $v_0=0$ bestimmt. Aus dem Voigt-Fit in Abschnitt \ref{einlinien} wird die Position $\mu$ des Peaks abgelesen und mit Hilfe von Gleichung \ref{vtoE} in Energie umgerechnet. Daraus erhalten wir für die Isomerieverschiebung:
+\begin{align}
+	E_\mathrm{iso}&=E_0\frac{\mu}{c}=(9,7\pm0,9)\,\si{neV}
+\end{align}
+\subsubsection{Linienbreite und Lebensdauer}
+Die gemessene Linienbreite ergibt sich aus der zu messenden natürlichen Linienbreite und der relativen Linienverbreiterung durch den endlich dicken Absorber. Die natürliche Linienbreite lässt sich durch eine Lorentz-Funktion, die relative Linienverbreiterung durch die Faltung einer Gauß-Funktion an der Lorentz-Funktion beschreiben (siehe Abschnitt \ref{lebensdauer}). Die Faltung der Lorentz- und der Gauß-Funktion ergibt eine Voigt-Funktion, welche an die Daten gefittet wurde.
+\paragraph{Berechnung aus dem Lorentz-Anteil des Voigt-Fits}
+Zunächst wird zum Berechnen der natürlichen Linienbreite $\Gamma$ der Lorentz-Anteil des Voigt-Fits verwendet. Dieser ergibt sich aus dem Fit-Parameter $\gamma$ des Voigt-Fits. Die natürliche Linienbreite $\Gamma$ berechnet sich nun mit Hilfe der Energieumrechnung in Gleichung \ref{vtoE} folgendermaßen:
+\begin{align}
+	\Gamma&=E_0\frac{\mu}{c}=(6\pm4)\,\si{neV}\text{ .}
+\end{align}
+Daraus berechnen sich die Lebensdauer und die Halbwertszeit des $14,4\,\si{keV}$-Zustand folgendermaßen:
+\begin{align}
+	\tau&=(110\pm70)\,\si{ns}\\
+	T_{\frac12}&=(80\pm50)\,\si{ns}
+\end{align}
+\paragraph{Berechnung aus der Linienbreite mit Hilfe der effektiven Absorberdicke}
+Als zweite Möglichkeit zur Berechnung der natürlichen Linienbreite lässt sich die relative Linienverbreiterung aus der effektiven Absorberdicke berechnen. Anschließend kann die natürliche Linienbreite aus der gesamten Linienbreite und der relativen Linienverbreitung berechnet werden. Die effektive Absorberdicke lässt sich auf folgende Art und Weise berechnen \cite{anleitung}:
+\begin{align}
+	T_A&=f_An_A\beta\sigma_0d_A=6,1\pm0,7\text{ .}
+\end{align}
+Dabei ist $f_A$ der Debye-Waller-Faktor, $n_A$ die Teilchendichte, $d_A$ die Dicke des Absorbers, $\beta$ der Anteil von $^{57}\mathrm{Fe}$ im Isotopengemisch und $\sigma_0=2\pi\lambdabar^2\cdot\frac{2I^*+1}{2I+1}\cdot\frac1{1+\alpha}$ der Wirkungsquerschnitt.\\
+
+\graX{linienverbreiterung}{Relative Linienverbreiterung}{Relative Linienverbreiterung in Abhängigkeit der effektiven Absorberdicke\label{verbreiterung} (Quelle: \cite{frauenfelder})}
+
+Aus dem Fit erhalten wir \begin{align}\gamma_\mathrm{Lorentz}=0,60\pm0,04\,\si{mms^{-1}}\end{align} und mit Hilfe von Gleichung \ref{vtoE} erhalten wir \begin{align}\Gamma_0=29\pm2\,\si{neV}\text{ .}\end{align} Mit Hilfe von Abbildung \ref{verbreiterung} kann nun die relative Verbreiterung \begin{align}W=\frac{\Gamma_0}{2\Gamma}=1.78\pm0.06\end{align} graphisch bestimmt werden. Da zusätzlich zur Absorberdicke auch die Quelldicke berücksichtigt werden muss, wird die relative Verbreiterung folgendermaßen berechnet::
+\begin{align}
+	\Gamma&=\frac{\Gamma_0}{4W}=(4.1\pm0.3)\,\si{neV}\\
+	\tau&=(162\pm12)\,\si{ns}\\
+	T_{\frac12}&=(112\pm9)\,\si{ns}
+\end{align}
+\subsubsection{Debye-Waller-Faktor}
+Der Debye-Waller-Faktor der Quelle berechnet sich mit folgender Gleichung:
+\begin{align}
+	f_Q&=\frac{Z_\infty-Z_\mu}{Z_\infty}\cdot\frac1{1-\exp(-\frac{T_A}2)\cdot J_0\left(\mathrm{i}\frac{T_A}2\right)}\text{ ,}
+\end{align}
+wobei $J_0$ eine Besselfunktion bezeichnet. Außerdem gilt:
+\begin{align}
+	Z_\infty&=r_\mathrm{Voigt}(\infty)=(12,84\pm0,08)\,\mathrm{s^{-1}}\text{ ,}\\
+	Z_\mu&=r_\mathrm{Voigt}(\mu)=(9,06\pm0,10)\,\mathrm{s^{-1}}\text{ .}
+\end{align}
+Damit gilt:
+\begin{align}
+	f_Q&=0,388\pm0,014\text{ .}
+\end{align}
+Der Fehler berechnet sich dabei mit Hilfe von Gauß'scher Fehlerrechnung folgendermaßen:
+\begin{align}
+	s_{f_Q}&=\sqrt{\left(\del[f_Q]{Z_\infty}\cdot s_{Z_\infty}\right)^2+\left(\del[f_Q]{Z_\mu}\cdot s_{Z_\mu}\right)^2+\left(\del[f_Q]{T_A}\cdot s_{T_A}\right)^2}\\
+	&=f_Q\sqrt{\frac{\left(\frac{Z_\mu}{Z_\infty^2}\right)^2s_{Z_\infty}^2+\left(\frac{1}{Z_\infty}\right)^2s_{Z_\mu}^2}{\frac{Z_\infty-Z_\mu}{Z_\infty}}+\left(\frac{\frac12\exp(-\frac{T_A}{2})\left(\mathrm{i}J_{-1}\left(\mathrm{i}\frac{T_A}2\right)-J_{0}\left(\mathrm{i}\frac{T_A}2\right)\right)}{1-\exp(-\frac{T_A}2)\cdot J_0\left(\mathrm{i}\frac{T_A}2\right)}\right)^2s_{T_A}^2}\text{ .}
+\end{align}
+
+
+\subsection{Sechslinienabsorber}
+\graX[1]{sechslinien}{Messung der Transmission durch die Eisenprobe (Sechslinienabsorber)}{Messung der Transmission durch die Eisenprobe (Sechslinienabsorber). Hier ist die Zählrate $r$ über die Geschwindigkeit $v$ aufgetragen. \label{fig:sechslinien}}
+
+Die für den Sechslinienabsorber erhaltenen Daten sind in Abbildung \ref{fig:sechslinien} aufgetragen. An diese Daten wurde eine sechsfache Gaußfunktion
+\begin{align}
+r_\mathrm{Gauss}^{n=6}(v)&=C+\sum_{i=1}^n\frac{N_i}{\sqrt{2\pi}\sigma_i}\exp(-\frac{(v-\mu_i)^2}{2\sigma_i^2})\text{ ,}\label{eq:sechsgaus}
+\end{align}
+eine sechsfache Lorentzfunktion 
+\begin{align}
+r_\mathrm{Lorentz}^{n=6}(v)&=C+\sum_{i=1}^n\frac{N_i}{2\pi}\frac{\gamma_i}{\left(v-\mu_i\right)^2+\frac14\gamma_i^2}\label{eq:sechslorentz}
+\end{align}
+und anschließend eine sechsfache Voigtfunktion 
+\begin{align}
+r_\mathrm{Voigt}^{n=6}(v)&=\sum_{i=1}^n\left(r_{\mathrm{Gauss}, i}*r_{\mathrm{Lorentz}, i}\right)(v)\label{eq:sechsvoigt}
+\end{align}
+gefittet. Die hierbei erhaltenen Fitparameter sind in den Tabellen \ref{tab:sechsgaus} bis \ref{tab:sechsvoigt} aufgeführt.\\
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|ccc}
+		$i$&$N_i\,/\,\si{mms^{-2}}$&$\mu_i\,/\,\si{mms^{-1}}$&$\sigma_i\,/\,\si{mms^{-1}}$\\\hline
+		$1$&$-1,60\pm0,15$&$-5,24\pm0,03$&$0,33\pm0,04$\\
+		$2$&$-1,38\pm0,17$&$-2,95\pm0,03$&$0,24\pm0,04$\\
+		$3$&$-0,80\pm0,17$&$-0,55\pm0,06$&$0,26\pm0,06$\\
+		$4$&$-0,67\pm0,18$&$ 0,94\pm0,07$&$0,24\pm0,07$\\
+		$5$&$-1,18\pm0,15$&$ 3,21\pm0,05$&$0,31\pm0,05$\\
+		$6$&$-1,43\pm0,13$&$ 5,43\pm0,05$&$0,44\pm0,05$\\
+	\end{tabular}\\
+	\begin{align*}
+		C&=(12,38\pm0,04)\,\si{s^{-1}}\\
+		\frac{\chi^2}{\mathrm{ndf}}&=0,38
+	\end{align*}
+	\caption[Fitdaten des sechsfachen Gaußfits]{Fitdaten des sechsfachen Gaußfits aus Abbildung \ref{fig:sechslinien} (siehe Gleichung \ref{eq:sechsgaus})}
+	\label{tab:sechsgaus}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|ccc}
+		$i$&$N_i\,/\,\si{mms^{-2}}$&$\mu_i\,/\,\si{mms^{-1}}$&$\gamma_i\,/\,\si{mms^{-1}}$\\\hline
+		$1$&$-2,2\pm0,3$&$-5,24\pm0,03$&$0,77\pm0,12$\\
+		$2$&$-1,6\pm0,3$&$-2,94\pm0,04$&$0,68\pm0,13$\\
+		$3$&$-1,0\pm0,2$&$-0,55\pm0,06$&$0,6 \pm0,2$\\
+		$4$&$-0,7\pm0,2$&$ 0,96\pm0,08$&$0,6 \pm0,2$\\
+		$5$&$-1,5\pm0,3$&$ 3,21\pm0,04$&$0,68\pm0,14$\\
+		$6$&$-2,6\pm0,4$&$ 5,44\pm0,04$&$0,99\pm0,15$\\
+	\end{tabular}\\
+	\begin{align*}
+	D&=(12,61\pm0,06)\,\si{s^{-1}}\\
+	\frac{\chi^2}{\mathrm{ndf}}&=0,39
+	\end{align*}
+	\caption[Fitdaten des sechsfachen Lorentzfits]{Fitdaten des sechsfachen Lorentzfits aus Abbildung \ref{fig:sechslinien} (siehe Gleichung \ref{eq:sechslorentz})}
+	\label{tab:sechslorentz}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|cccc}
+		$i$&$N_i\,/\,\si{mms^{-2}}$&$\mu_i\,/\,\si{mms^{-1}}$&$\sigma_i\,/\,\si{mms^{-1}}$&$\gamma_i\,/\,\si{mms^{-1}}$\\\hline
+		$1$&$-1,3\pm0,4$&$-5,24\pm0,03$&$0,31 \pm0,12$&$0,0 \pm0,2$\\
+		$2$&$-1,3\pm0,3$&$-2,96\pm0,04$&$0,0  \pm1,5$ &$0,28\pm0,15$\\
+		$3$&$-0,7\pm0,2$&$-0,51\pm0,07$&$0    \pm60$  &$0,3 \pm0,2$\\
+		$4$&$-0,16\pm0,19$&$ 0,98\pm0,07$&$0,5\pm0,2$ &$-0,6\pm0,8$\\
+		$5$&$-1,5\pm0,4$&$ 3,24\pm0,05$&$0,1  \pm0,4$ &$0,3 \pm0,2$\\
+		$6$&$-1,1\pm0,4$&$ 5,45\pm0,04$&$0,69 \pm0,16$&$0,6\pm0,4$\\
+	\end{tabular}\\
+	\begin{align*}
+		C&=(12,41\pm0,07)\,\si{s^{-1}}\\
+		\frac{\chi^2}{\mathrm{ndf}}&=0,37
+	\end{align*}
+	\caption[Fitdaten des sechsfachen Voigtfits]{Fitdaten des sechsfachen Voigtfits aus Abbildung \ref{fig:sechslinien} (siehe Gleichung \ref{eq:sechsvoigt})}
+	\label{tab:sechsvoigt}
+\end{table}
+Die Auswertung des Sechslinienabsorbers wurde mit dem Skript \code{Sechslinien.R} in Anhang \ref{code} durchgeführt.
+\clearpage
+\subsubsection{Hyperfeinaufspaltung}
+Wie in Abschnitt \ref{hyperfein} beschrieben, erlaubt die Hyperfeinstrukturaufpaltung sechs Übergänge vom angeregten Zustand in den Grundzustand. Diese können wie in Tabelle \ref{tab:hyperfein} beschrieben den Peaks zugeordnet werden.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c|cccccc}
+		$i$&1&2&3&4&5&6\\\hline
+		$m_a$&$\frac32$&$\frac12$&$-\frac12$&$\frac12$&$-\frac12$&$-\frac32$\\\hline
+		$m_g$&$\frac12$&$\frac12$&$\frac12$&$-\frac12$&$-\frac12$&$-\frac12$
+	\end{tabular}
+	\caption[Magnetische Quantenzahlen der Hyperfeinaufspaltung von $^{57}$Fe]{Magnetische Quantenzahlen der Hyperfeinaufspaltung von $^{57}$Fe. Die Quantenzahl des Grundzustands ist $m_g$ und $m_a$ die Quantenzahl des angeregten Zustands.}
+	\label{tab:hyperfein}
+\end{table}
+
+Aus den magnetischen Momenten $\mu_a$ und $\mu_g$ lässt sich nun für jeden Peak mit Gleichung \ref{eq:hyperfein} die theoretische Aufspaltungsenergie $E_i$ berechnen:
+\begin{align}
+	E_1&=(\mu_a-\mu_g)B=-E_6\label{eq:hyperfein1}\\
+	E_2&=(\frac13\mu_a-\mu_g)B=-E_5\label{eq:hyperfein2}\\
+	E_3&=(-\frac13\mu_a-\mu_g)B=-E_4\label{eq:hyperfein3}
+\end{align}
+
+\subsubsection{Isomerieverschiebung}
+Aus den Gleichungen \ref{eq:hyperfein1} bis \ref{eq:hyperfein3} lässt sich die in Abschnitt \ref{Isomerie} beschriebene Isomerieverschiebung bestimmen. Aus dem Voigt-Fit in Abschnitt \ref{einlinien} wird die Position $\mu$ der Peaks abgelesen und mit Hilfe von Gleichung \ref{vtoE} in Energien umgerechnet. Anschließend wird daraus der Nullpunkt für jedes Energiepaar und danach der Mittelwert aus den drei erhaltenen Werten berechnet. Daraus erhalten wir für die Isomerieverschiebung:
+\begin{align}
+E_\mathrm{iso}&=(6,7\pm0,9)\,\si{neV}\text{ .}
+\end{align}
+
+Die $E_i$ berechnen sich nun durch
+\begin{align}
+	E_i&=E_{i,\text{mess}}-E_\text{iso}\text{ .}
+\end{align}
+
+\subsubsection{Magnetisches Moment}
+Das magnetische Moment des Grundzustands ist gegeben durch \cite{schatz}:
+\begin{align}
+	\mu_g&=(0.090604\pm0.000009)\,\mu_N\text{ ,}
+\end{align}
+mit dem Kernmagneton $\mu_N=\frac{e\hbar}{2m_\text{Proton}}$.\\
+
+Aus den Gleichungen \ref{eq:hyperfein1} bis \ref{eq:hyperfein3} ergeben sich die folgenden Verhältnisse:
+\begin{align}
+	\frac{E_2}{E_3}&=\frac{E_5}{E_4}=\frac{\frac13\mu_a-\mu_g}{-\frac13\mu_a-\mu_g}\label{eq:}\\
+	\frac{E_1}{E_3}&=\frac{E_6}{E_4}=\frac{\mu_a-\mu_g}{-\frac13\mu_a-\mu_g}\\
+	\frac{E_1}{E_2}&=\frac{E_6}{E_5}=\frac{\mu_a-\mu_g}{\frac13\mu_a-\mu_g}\text{ .}
+\end{align}
+Daraus ergeben sich folgende Gleichungen für das magnetische Moment des angeregten Zustands:
+\begin{align}
+	\mu_a&	=3\mu_g\left(\frac{1-\frac{E_2}{E_3}}{1+\frac{E_2}{E_3}}\right)
+			=3\mu_g\left(\frac{1-\frac{E_5}{E_4}}{1+\frac{E_5}{E_4}}\right)\\
+	\mu_a&	=\mu_g\left(\frac{1-\frac{E_1}{E_3}}{1+\frac13\frac{E_1}{E_3}}\right)
+			=\mu_g\left(\frac{1-\frac{E_6}{E_4}}{1+\frac13\frac{E_6}{E_4}}\right)\\
+	\mu_a&	=\mu_g\left(\frac{-1+\frac{E_1}{E_2}}{-1+\frac13\frac{E_1}{E_2}}\right)
+			=\mu_g\left(\frac{-1+\frac{E_6}{E_5}}{-1+\frac13\frac{E_6}{E_5}}\right)\text{ .}
+\end{align}
+Aus dem Mittelwert der einzelnen Ergebnisse ergibt sich als Ergebnis für das magnetische Moment:
+\begin{align}
+	\mu_a&=(-0,157\pm0,004)\,\mu_N\text{ .}
+\end{align}
+\subsubsection{Magnetische Feldstärke}
+Aus den Gleichungen \ref{eq:hyperfein1} bis \ref{eq:hyperfein3} ergeben sich folgende Formeln für die magnetische Feldstärke am Kernort:
+\begin{align}
+	B_1&=\frac{E_1}{\mu_a-\mu_g}=(33,1\pm0,6)\,\si{T}&
+	B_6&=\frac{E_6}{\mu_g-\mu_a}=(32,7\pm0,6)\,\si{T}\\
+	B_2&=\frac{E_2}{\frac13\mu_a-\mu_g}=(33,1\pm0,5)\,\si{T}&
+	B_5&=\frac{E_5}{\mu_g-\frac13\mu_a}=(33,1\pm0,7)\,\si{T}\\
+	B_3&=\frac{E_3}{\frac13\mu_a+\mu_g}=(26\pm3)\,\si{T}&
+	B_4&=\frac{E_4}{\mu_g+\frac13\mu_a}=(33\pm3)\,\si{T}
+	\text{ .}
+\end{align}
+Aus dem Mittelwert ergibt sich hiermit folgendes Magnetfeld am Kernort:
+\begin{align}
+	B&=(32,9\pm0,3)\,\si{T}\text{ .}
+\end{align}

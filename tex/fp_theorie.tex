@@ -1,0 +1,216 @@
+\section{Theoretische Grundlagen}
+
+\subsection{Wechselwirkung von Photonen mit Materie}
+
+Um $\gamma$-Strahlung detektieren zu können, muss die $\gamma$-Strahlung mit Materie wechselwirken. Wir unterscheiden dabei grundsätzlich drei Prozesse: Den Photoeffekt, den Compton-Effekt und die Paarbildung. In Materie klingt die Intensität von $\gamma$-Strahlung exponentiell ab:
+\begin{align}
+I&= I_0\cdot e^{-\mu x}
+&\text{mit } 
+\mu &= \mu_\text{photo} + \mu_\text{Compton} + \mu_\text{Paar}
+\end{align}
+
+Die einzelnen Prozesse werden im Folgenden erklärt.\cite{demtroeder}
+
+\begin{itemize}
+\item \textbf{Photo-Effekt}
+Beim Photo-Effekt dringt ein Photon in das Atom ein und überträgt seine gesamte Energie an ein Elektron der inneren Schalen. Dabei wird Energie auf dieses Elektron übertragen, es wird aus der Atomhülle befreit und erhält kinetische Energie. Die hier entstandene Lücke wird über Abstrahlung eines $\gamma$-Quants oder eines Elektrons wieder gefüllt.
+
+\item\textbf{Compton-Effekt}
+Beim Compton-Effekt trifft ein einfallendes $\gamma$-Quant auf ein freies oder nur leicht gebundenes Elektron und überträgt einen Teil seiner Energie auf dieses. Dieser Prozess findet meist bei Energien zwischen $200\,\si{keV}$ und $5\,\si{MeV}$ statt.
+
+\item\textbf{Paarbildung und Paarvernichtung \label{PVN1}}
+Bei der Paarbildung entsteht durch die Wechselwirkung des $\gamma$-Quants mit dem elektromagnetischen Feld des Atomkerns oder eines Elektrons ein Teilchen-Antiteilchen-Paar, z.B. ein Elektronen-Positronen-Paar. Paarbildung ist für Energien über $1,022\,\si{MeV}$ möglich. Die über diesen Grenzwert hinausgehende Energie wird auf die entstandenen Teilchen übertragen, der Impuls wird vom Kern aufgenommen. Da das Positron nicht lange alleine existieren kann, vereinigt es sich unter Abstrahlung von zwei $\gamma$-Quanten mit einer Energie von je $511\,\si{keV}$ mit einem Elektron.
+\end{itemize}
+
+ \subsection{Nachweis der $\gamma$-Strahlung mithilfe des Szintillationszählers}
+ Die emittierten Photonen müssen nun detektiert und ihre Energie bestimmt werden. Dazu wird ein Energie-sensitiver Detektor, eine Kombination aus Szintillator und Photomultiplier, verwendet.
+ \paragraph{Szintillator} Ein Szintillator detektiert Teilchen eines bestimmten Energiebereichs. Es gibt organische und anorganische Szintillatoren, wobei in diesem Versuch ein anorganischer NaI(Tl)-Szintillator verwendet werden. Dieser besteht aus einem mit Thallium dotierten NaI-Kristall, in welchem die eintreffenden Photonen ihre Energie durch den Photo- oder Compton-Effekt an Elektronen abgeben. Je höher die Energie der Photonen ist, desto mehr Elektronen werden erzeugt. Diese Elektronen werden nun angeregt und später unter Emission  niederenergetischer Photonen wieder abgeregt. Die Dotierung mit Thallium verhindert, dass die emittierten Elektronen wieder absorbiert werden. Die Bandstruktur, auf der die Funktionsweise eines Szintillators beruht, ist in Abbildung \ref{Szinti} dargestellt.\cite{szinti}
+ 
+ \graX[0.7]{Szinti}{Funktionsweise eines Szintillators}{Funktionsweise eines Szintillators \label{Szinti} \cite{szinti}}
+ \paragraph{Photomultiplier}
+ Das Licht wird nun vom Szintillator über Lichtleiter zum Photomultiplier geleitet. Dieser wandelt die Lichtimpulse des Szintillators durch den Photoeffekt in elektrische Impulse um, welche proportional zur Lichtintensität sind und verstärkt diese durch Elektronenvervielfachung. Die Funktionsweise eines Photomultipliers ist in Abbildung \ref{Multi} dargestellt.\cite{PM}
+ 
+ \graX{photomult}{Funktionsweise eines Photomultipliers}{Funktionsweise eines Photomultipliers \label{Multi} \cite{PM}}
+
+\subsection{Zerfallsschema von Cobalt}
+
+Das in diesem Versuch verwendete $^{57}$Co zerfällt mit einer Wahrscheinlichkeit von $99,8\%$ und einer Halbwertszeit von $270$ Tagen über Elektroneneinfang in einen angeregten Zustand von $^{57}\mathrm{Fe}^*$ (siehe Abbildung \ref{Co57}):
+
+\[ ^{57}_{27}\mathrm{\textbf{Co}} +\ \mathrm{e}^-\ \longrightarrow\ ^{57}_{26}\mathrm{\textbf{Fe}}^*\ +\ \nu_e\]
+
+\graX{co57schema}{Zerfallsschema von $^{57}$Co}{Zerfallsschema von $^{57}$Co \label{Co57} \cite{anleitung}}
+
+Der angeregte Zustand geht unter anderem über die Aussendung eines Photons mit einer Energie von $14,4\,\mathrm{keV}$ mit einer Halbwertszeit von $98\,\mathrm{ns}$ in den Grundzustand über. \cite{anleitung}
+
+\subsection{Lebensdauer und Linienbreite}
+\label{lebensdauer}
+Die mittlere Lebensdauer ist über den Erwartungswert der Zeit definiert, wie lange ein Zustand existiert:
+\begin{align}
+\tau=\langle t\rangle=\int_{0}^{\infty}t\lambda e^{-\lambda t}dt=\frac{1}{\lambda} \text{ .}
+\end{align}
+
+Grund dafür, dass Spektrallinien eine natürliche Breite haben und nicht als Delta-Distribution auftreten, ist die Heisenbergsche Unschärferelation:
+
+\begin{align}
+\Delta E\cdot\Delta t\geq\frac{\hbar}{2}\text{ .}
+\end{align}
+
+
+Die natürliche Zerfallsbreite weißt ein Breit-Wiegner Profil auf. Man erhält damit folgenden Zusammenhang zwischen Zerfallsbreite und Lebensdauer:
+
+\[\Gamma=\frac{\hbar}{\tau}\text{ .}\]
+
+
+Die Lebensdauer des in diesem Versuch untersuchten $14,4\,\mathrm{keV}$-Übergangs beträgt  $\tau = 141\cdot \,\mathrm{ns}$. Es folgt eine natürliche Zerfallsbreite von $\Gamma = 4,7\cdot 10^{-9} \,\si{eV}$. Es handelt sich also um eine sehr scharfe Linie mit einer relativen Breite von $\frac{\Gamma}{E_{\gamma}}=3\cdot 10^{-13}$. \cite{jakobs}
+
+
+\subsubsection{Dopplerverbreiterung}
+
+Aus der thermischen Bewegung der Kerne folgt eine Dopplerverbreiterung der Linienbreite in beide Richtungen, der ein Gauß-Profil zu Grunde liegt. Diese ist wie folgt gegeben:
+
+\begin{align}
+\Gamma_\text{Dop} = 2\sqrt{\ln2}\cdot E_{\gamma}\cdot\sqrt{\frac{2kT}{Mc^2}}\text{ .}
+\end{align}
+
+Diese ist nicht vernachlässigbar und spielt in dem in diesem Versuch zu betrachtenden Prozess eine wesentliche Rolle. \cite{jakobs}
+
+\subsection{Resonanzabsorption}
+
+Resonanzabsorption beschreibt den Prozess, bei dem ein Kern beim Übergang von einem angeregten Zustand $E_a$ in den Grundzustand $E_g$ ein Photon aussendet, das dann von einem zweiten Kern absorbiert wird und in diesem den gleichen Übergang anregt. 
+
+Auf Grund der Impulserhaltung muss bei der Aussendung eines Photons von einem ruhenden, freien Kern eben dieser Kern den gleichen Impuls  $p_K = -p_{\gamma}$ wie das ausgesandte Photon tragen. Die Rückstoßenergie, die auf den Kern übertragen wird, ist dann wie folgt gegeben:
+
+\begin{align}
+E_R = \frac{p^2}{2M} = \frac{p_{\gamma}^2}{2M} = \frac{E_{\gamma}^2}{2Mc^2} \text{ ,}\label{5}
+\end{align}
+mit der Photonenenergie $E_{\gamma}=p_{\gamma}c$ und der Kernmasse $M$.
+
+Aus Energieerhaltung folgt für die Energie des Photons somit:
+
+\begin{align}
+E_{\gamma}' = E_0 - E_R\text{ .}
+\end{align}
+
+mit der Übergangsenergie $E_0$. Bei der Reabsorption dieses Photons muss erneut die Rückstoßenergie $E_R$  auf den Kern übertragen werden. Es trägt dann also noch folgende Energie $E_{\gamma}$:
+
+\begin{align}
+E_{\gamma} = E_0-2E_R\text{ .}
+\end{align}
+
+Die Rückstoßenergie liegt für freie Atome in einem Bereich von ca.  $10^{-3}\,\si{eV}$. Die Verschiebung der Photonenenergie ist damit deutlich größer als die natürliche Linienbreite des Kernübergangs. Demnach kann bei freien Atomen theoretisch Resonanzabsorption nicht beobachtet werden. Allerdings liefert die Dopplerverbreiterung einen Beitrag, der in der Größenordnung der Rückstoßenergie liegt, sodass sich Emissions- und Absorptionsspektrum im Experiment überlappen und Resonanzabsorption stattfindet (siehe Abbildung \ref{Doppler}).
+
+\graX[]{Doppler}{Dopplerverbreiterung}{Dopplerverbreiterung der Emissionsenergie führt zu einem Überlapp mit dem Absorptionspeak und damit zu Resonanzabsorption bei Raumtemperatur \label{Doppler}\cite{jakobs}}
+
+Zudem kann (z.B. bei tieferen Temperaturen mit geringerer Dopplerverbreiterung) durch Bewegung der Quelle oder des Absorbers und daraus folgender Dopplerverschiebung die Verschiebung der Photonenenergie durch die Rückstoßenergie ausgeglichen werden.
+Bei einer Quellengeschwindigkeit $v_Q$ ergibt sich für die gesamte Energieverschiebung \footnote{Herleitung siehe \cite{jakobs}}:
+\begin{align}
+\Delta E = 2E_R - E_\text{dop} = \frac{E_{\gamma}^2}{Mc^2} - E_{\gamma}\frac{v_Q}{c}\text{ .}
+\end{align}
+
+Bei passender Geschwindigkeit wird somit Resonanzabsorption beobachtet (siehe Abbildung \ref{velocity}). \cite{jakobs}
+
+\graX{Geschwindigkeitsvariation}{Resonanzgeschwinidgkeit}{Die Energie der Photonen kann durch Geschwindigkeitsvariation der Quelle verändert werden.\label{velocity} \cite{jakobs}}
+
+\subsection{Mößbauer-Effekt}
+
+Beim Einbau eines Kerns in ein Kristallgitter wird der Impuls des Rückstoßes vom gesamten Kristall aufgenommen. Durch die vergleichsweise sehr große Masse des Kristalls ist die Rückstoßenergie nach \ref{5} sehr gering. Beim Rückstoß eines Photons auf ein Mol Eisen beträgt die Rückstoßenergie beispielsweise nur etwa $10^{-27}\,\si{eV}$. Dieser Energieverlust ist deutlich kleiner als die natürliche Linienbreite, sodass trotz der Verschiebung die Photonenenergie nicht über den Bereich der natürlichen Linienbreite hinaus verschoben wird. Trifft das Photon dann erneut auf einen Atomkern, kann auch hier der Rückstoß vernachlässigt werden und es kommt zur Reabsorption. 
+Auch hier kann analog zu freien Atomen die Photonenenergie durch gerichtete Bewegung verschoben werden. Bei Messung der Transmissionsrate hinter dem Absorber erwartet man dann einen Einbruch be der relativen Resonanzgeschwindigkeit $v_{res}$ (siehe Abbildung \ref{KILL THE STICKMAN}). Theoretisch liegt diese bei $v_0=0$, da, wie bereits erwähnt, hier die Rückstoßenergie vernachlässigt werden kann. In der Realität beobachtet man eine Verschiebung der Resonanzgeschwindigkeit auf Grund der Isomerie-Verschiebung (siehe Abschnitt \ref{Isomerie}). Diesen Effekt der rückstoßfreien Resonanzabsorption bezeichnet man als Mößbauer-Effekt. \cite{jakobs}
+
+\graX[]{Moessbauer_Spektrum}{Moessbauerspektrum}{Mößbauerspektrum, oben: Dopplerverschiebung der Energie als Ausgleich zum Rückstoßverlust; unten: Transmission hinter dem Absorber in Abhängigkeit der Geschwinidgkeit \label{KILL THE STICKMAN} \cite{jakobs}}
+
+\subsection{Gittermodelle}
+
+Im Folgenden Abschnitt sollen die beiden wichtigsten Gittermodelle, das Einstein- und das Debye-Modell, sowie ihre jeweilige Gültigkeit diskutiert werden. \cite{morris}
+
+\subsubsection{Einsteinmodell}
+
+Das Einsteinmodell macht die Annahme, dass jedes Atom im Gitter als harmonischer Oszillator mit $3$ Freiheitsgraden mit der Frequenz $\omega_E$ beschrieben werden kann. Ein Gitter wird demnach als $N$ Oszillatoren mit $3N$ Freiheitsgraden und der einheitlichen Frequenz $\omega_E$ betrachtet. Die Energie eines harmonischen Oszillators ist gegeben durch:
+\begin{align}
+E_n=\left( n+\frac{1}{2}\hbar\omega\right) \text{ .}
+\end{align} 
+
+Nach diesem Modell können durch Energieübertrag (z.B. Rückstoßenergie) Gitterschwingungen, sogenannte Phononen, der Energie $\hbar \omega_E$ angeregt werden. Klassisch würde es immer zu Gitterschwingungen kommen. Durch die Quantisierung der Energie in der Quantenmechanik ist dies nicht mehr der Fall, da die Rückstoßenergie bei einem $\gamma$-Übergang von Kernzuständen $E_R$ häufig kleiner als $\hbar \omega_E$ ist. Man kann nun Wahrscheinlichkeiten dafür angeben, ob ein Übergang rückstoßfrei oder unter Anregung eines Phonons stattfindet. Für $^{57}$Fe gilt:
+$E_R\approx0,2\cdot10^{-2}\,\mathrm{eV} < 10^{-2}\,\mathrm{eV}=\hbar\omega_E $. Die Wahrscheinlichkeit für einen rückstoßfreien Übergang beträgt $0,8$, für einen Übergang unter Anregung einer Gitterschwingung $0,2$. Nach dem Einsteinmodell ist der Anteil der rückstoßfreien Übergänge durch folgenden Zusammenhang gegeben:
+
+\begin{align}
+f_E = 1-\frac{E_R}{\hbar \omega_E}\approx0,9
+\end{align}
+In der Realität sind die Phononen eines Körpers allerdings deutlich komplexer. Das Einstein-Modell bietet eine gute Näherung für hohe Temperaturen, versagt jedoch bei tiefen.
+
+\subsubsection{Debyemodell}
+
+Die Ursache der Unstimmigkeiten zwischen dem Einsteinmodell und den experimentellen Daten ist hauptsächlich die Annahme, dass eine einzelne Frequenz alle $3N$ harmonischen Oszillatoren charakterisiert. Debye verbesserte Einsteins Theorie, indem er die Vibrationen eines Körpers als Ganzes betrachtete und von einem kontinuierlichen, elastischen Festkörper unter Berücksichtigung der Dispersionsrelation ausging. Er ordnete die Innere Energie des Festkörpers stationären, elastischen Schallwellen zu. Jede unabhängige Vibrations- (oder Normal-)Mode wird dabei als ein Freiheitsgrad behandelt.
+Anders ausgedrückt behandelt Debye einen Festkörper also als Phononengas. Vibrationswellen sind Materiewellen, jede mit ihrer eigenen de Broglie-Wellenlänge und assoziiertem Teilchen. 
+Die 1.Brioullin-Zone des Gitters lässt sich durch eine Kugel mit dem  Radius $k_D$ ersetzen, der dem Debye-Wellenvektor entspricht. Hieraus ergibt sich die Debye-Frequenz als Grenzfrequenz zu:
+\begin{align}
+\omega_D = v\cdot k_D
+\end{align}
+und die Debye-Temperatur zu:
+\begin{align}
+\theta_D = \frac{\hbar\omega_D}{k}\text{ .}
+\end{align}
+Die Debye-Temperatur gibt an, bei welcher Temperatur alle Schwingungsmoden angeregt sind. Das Debye-Modell hat nur innerhalb dieser Grenzen Gültigkeit.\\
+In Abbildung \ref{VS} sind das Einsteinmodell und das Debyemodell im Vergleich dargestellt.\\
+
+Auch im Debye-Modell kann der Bruchteil der rückstoßfreien Emissionen bestimmt werden, und zwar genauer als im Einstein-Modell. Dieser sogenannte Debye-Waller-Faktor ist temperaturabhängig. Das Prinzip hinter diesem physikalischen Prozess ist in Abbildung \ref{Debye} dargestellt.
+
+\graX{Einstein-vs-Debye}{Vergleich zwischen Einstein- und Debye-Modell}{Vergleich zwischen Einstein- und Debye-Modell: oben: Frequenzverteilung bei Einstein (links) und Debye (rechts); unten: Energieverteilung im Festkörper beim Einstein-Modell (links) und in der Realität (durch Debye gut beschrieben, rechts). \label{VS}\cite{jakobs}}
+
+\graX[0.9]{Debye}{Debye-Waller-Faktor}{Anteil rückstoßfreier Emissionen im Debye-Modell. \label{Debye} \cite{jakobs}}
+
+Der Debye-Waller-Faktor ergibt sich nach dem Debye-Modell zu
+
+\begin{align}
+f = \exp\left[ -\frac{3E_R}{2k\theta_D}\left( 1+\left( \frac{2T}{\theta_D}^2 \int_{0}^{\theta_D/T}\frac{x\mathrm{d}x}{e^x-1}\right) \right) \right]\text{ .}
+\end{align}
+Für Temperaturen $T$, für die $T \ll \theta_D$ gilt, und Kerne in arteigenen kubischen Gittern, kann folgende Näherung gemacht werden:
+\begin{align}
+f\approx \exp\left[ -\frac{E_R}{k\theta_D} \left(\frac{3}{2} + \left(\frac{\pi T}{\theta_D}\right)^2 \right) \right]\text{ .}
+\end{align}
+
+Die Debye-Temperatur von Eisen liegt bei ca. $470 \,\mathrm{K}$. Bei Raumtemperatur ergibt sich somit ein Debye-Waller-Faktor von $f=0.8$, 80\% der Übergänge finden also rückstoßfrei statt. Diese Eigenschaften machen Eisen zu einem guten Mößbauer-Kandidaten. Dies ist auch noch einmal in Abbildung \ref{DWF} dargestellt. Man erkennt deutlich, dass der Debye-Waller-Faktor für Eisen bis über Raumtemperatur hinaus kaum absinkt, der Versuch kann also ungekühlt durchgeführt werden.
+
+\graX{Debye-Waller-Faktor}{Temperaturabhängigkeit des Debye-Waller-Faktors}{Temperaturabhängigkeit des Debye-Waller-Faktors für Eisen und Rhenium. \label{DWF}\cite{jakobs}}
+
+\subsection{Modifikationen des Übergangsspektrums}
+
+Im folgenden Abschnitt werden die Effekte, die zur Verschiebung und Aufspaltung der Energielevel beitragen, diskutiert.
+
+\subsubsection{Isomerieverschiebung \label{Isomerie}}
+
+Die Änderung der chemischen Umgebung eines Atoms, also zum Beispiel der Einbau in ein Gitter, bewirkt eine effektive Änderung des Coulomb-Potentials des Kerns und dessen effektiven Radius. Auf Grund der Potentialabhängigkeit der Energie von Kernübergängen, verschiebt sich somit die Übergangsenergie. Dieser als Isomerieverschiebung bezeichnete Effekt tritt in diesem Versuch auf Grund der unterschiedlichen chemischen Umgebung von Quelle und Absorber auf und ist deshalb bei der Auswertung der Messergebnisse zu berücksichtigen.
+
+\subsubsection{Hyperfeinstrukturaufspaltung}\label{hyperfein}
+
+Zwischen dem Magnetfeld der Elektronenhülle und dem magnetischen Kernspin findet eine Wechselwirkung statt, die zur Aufhebung der Entartung der Energieniveaus führt. Diese Hyperfeinstruktur-Aufspaltung 
+ist gegeben durch:
+\begin{align}
+E_\text{mag} = \frac{\mu_I m_I}{I}B\label{eq:hyperfein}
+\end{align}
+mit dem magnetischen Kernmoment $\mu_I$, dem Kernspin $I$, der magnetischen Quantenzahl $m_I$ und dem Magnetfeld $B$ am Kernort.
+Bei dem in diesem Versuch zu untersuchenden Übergang spaltet sich der Grundzustand in zwei Linien und der angeregte Zustand in vier Linien auf. Von diesen acht theoretischen Übergängen werden auf Grund der Auswahlregel $\Delta m =0, \pm 1$ nur sechs im Mößbauer-Spektrum beobachtet. Das durch die beiden beschriebenen Effekte resultierende Spektrum ist in Abbildung \ref{hyper} dargestellt.
+
+\graX{hyper}{Hyperfeinaufspaltung von Eisen-57}{Hyperfeinaufspaltung von Eisen-57. \label{hyper}\cite{hyper}}
+
+%Rechts ist die Hyperfeinaufspaltung mit ihren 6 Übergängen zu sehen. Zudem sind auch die elektrische Quadrupolaufspaltung und die Isomerieverschiebung zu erkennen. Die Quadrupolaufspaltung wird in diesem Versuch nicht untersucht. Sie tritt bei deformierten Kernen mit nicht verschwindendem Quadrupolmoment und einer asymmetrischen Elektronenhülle, die einen Feldgradienten erzeugt, auf. Dies ist häufig in komplexen Eisenverbindungen (z.B. Borazit) zu finden. Im Spektrum wären hierbei 2 Peaks zu erkennen.
+\newpage
+\subsection{Geräte und Signalformen}
+In diesem Abschnitt werden die wesentlichen Komponenten des Aufbaus diskutiert. \cite{szinti}
+\paragraph{Detektor} Der Szintillator und der Photomultiplier bilden zusammen den Detektor.
+\paragraph{Main Amplifier (MA)}
+Der Hauptverstärker  verstärkt das Spannungssignal rauscharm und erzeugt einen möglichst kurzen Puls, dessen Dauer amplitudenunabhängig ist. Die Pulshöhe ist dabei annähernd proportional zur deponierten Ladungsmenge im Szintillator. Der Hauptverstärker hat zwei verschiedene Ausgänge, die entweder ein bipolares Signal (zeitsensible Messungen) oder ein unipolares Signal (Aufnahme der Spektren) liefern (siehe Abbildung \ref{Signale}).
+\paragraph{Multi Channel Analyzer}
+Der Multi Channel Analyzer ordnet jeden eingehenden Puls abhängig von der Pulshöhe (also von der im Szintillator deponierten Ladungsmenge) einem Channel zu. Das so erhaltene Energiespektrum kann als Histogramm dargestellt werden.
+\paragraph{Single Channel Analyzer}
+Ein Single Channel Analyzer selektiert aus eingehenden Signalen, indem nur für Energien innerhalb eines einstellbaren Energiefensters ein Ausgangspuls erzeugt wird. Für die Messung der Einlinien- und Sechslinienspektren sollen hier die Energiefenster dem $14,4\,\si{keV}$-Peak angepasst werden (siehe Abschnitt \ref{sec:eichung}).
+\paragraph{Linear Gate und Delay Unit}
+Liegt am enable-Eingang des Gates ein Signal an, so wird in dieser Zeit das Signal des
+Eingangs direkt an den Ausgang weitergeleitet. Mit einem Schlitzschraubenzieher kann
+die Dauer des Gatesignals eingestellt werden. Mit der Delay-Unit können Signale um einige Mikrosekunden verzögert werden und so z.B. unterschiedlich lange Signalwege ausgleichen.
+Die erwarteten Signalformen nach den einzelnen Einheiten sind in Abbildung \ref{Signale}    dargestellt.
+
+Die hier beschriebenen Signalformen werden während des Aufbaus des Versuches mit Hilfe eines Oszilloskops überprüft (siehe Kapitel \ref{Aufbau}).
+
+\graX[0.7]{Signale}{Erwartete Signalformen nach den einzelnen Einheiten}{Erwartete Signalformen nach den einzelnen Einheiten. \label{Signale}\cite{anleitung}}
+
+
