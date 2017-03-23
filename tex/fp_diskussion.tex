@@ -1,0 +1,76 @@
+\section{Zusammenfassung und Diskussion \label{Diskussion}}
+	
+\subsection{Eichung und Korrekturmessungen}
+
+Zur Energieeichung des MCA wurden bekannte Peaks von Barium, Silber, Molybdän, Rubidium und Terbium vermessen. Daraus ergibt sich der Umrechnungsfaktor 
+
+\begin{align}	
+	b=(0,0763\pm0,0017)\,\si{\frac{keV}{Channel}}\text{ ,}
+\end{align}
+
+womit sich die erwartete Position des $14,4\,\si{keV}$-Peaks zu 
+\begin{align}
+	\text{Pos}_{14,4}=195\pm7
+\end{align}
+
+ergibt.\\
+
+Des Weiteren wurde der Einfluss des Compton-Untergrundes mit Hilfe der Messung von Transmission durch Aluminiumplatten unterschiedlicher Dicke sowie die Abschwächung durch das Plexiglas der Absorberhalterung untersucht. Dabei wurde folgende Korrekturformel für die Zählrate ermittelt:
+\begin{align}
+	r&=k_\mathrm{Plexi}\cdot r_\mathrm{Mess}-r_\mathrm{Untergrund}\text{ ,}
+\end{align}
+mit
+\begin{align}
+	k_\mathrm{Plexi}&=1,243\pm0,010\text{ ,}\\
+	r_\mathrm{Untergrund}&=(18,5\pm0,3)\,\si{s^{-1}}\text{ .}
+\end{align}
+
+\subsection{Einlinienabsorber}
+Für den Einlinienabsorber wurde eine Isomerieverschiebung von 
+\begin{align}
+	E_\mathrm{iso}=(9,7\pm0,9)\,\si{neV}
+\end{align}
+gemessen.\\
+
+Die Linienbreite und Lebensdauer wurden einerseits durch den Lorentzanteil der Voigtfunktion und andererseits mit Hilfe der effektiven Absorberdicke $T_A=6,1\pm0,7$ berechnet und sind in Tabelle \ref{tab:einlinien} aufgetragen im Vergleich zu den Literaturwerten aufgetragen.\\
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|ccc|r}
+		&$\Gamma\,/\,\si{neV}$&$\tau\,/\,\si{ns}$&$T_{\frac12}\,/\,\si{ns}$&$\frac{\chi^2}{\text{ndf}}$\\\hline
+		Voigt-Fit&$6\pm4$&$110\pm70$&$80\pm50$&$0,55$\\
+		effektive Absorberdicke&$4,1\pm0,3$&$162\pm12$&$112\pm9$&$0,56$\\
+		Literaturwerte \cite{anleitung}&$4,7$&$141$&$98$
+	\end{tabular}
+	\caption{Messergebnisse für den Einlinienabsorber}
+	\label{tab:einlinien}
+\end{table}
+
+Dabei stellen wir fest, dass die aus der Lorentzbreite des Voigtfit bestimmten Werte innerhalb eines $\sigma$ mit den Literaturwerten übereinstimmen, der Fehler allerdings über $50\%$ des Wertes beträgt. Diese hohen Fehler liegen darin begründet, dass der Lorentzanteil des Voigtfits mit einem hohen Fehler bestimmt wurde. Die Werte, die wir durch Berechnung der effektiven Absorberdicke erhalten haben, sind deutlich genauer und stimmen innerhalb von $2\sigma$ mit den Literaturwerten überein.\\
+
+Der Debye-Waller-Faktor der Quelle berechnet sich aus gegebenen Werten aus der Literatur und den Messwerten zu 
+\begin{align}
+	f_Q&=0,388\pm0,014\text{ .}
+\end{align}
+Der dem im Labor ausliegenden Datenblatt entnommene Wert für den Debye-Waller-Faktor beträgt $0,77$. Die starke Abweichung kann in der Temperaturabhängigkeit des Debye-Waller-Faktors begründet liegen. Da im Datenblatt keine Temperatur angegeben war, gilt dieser Wert möglicherweise nicht für die Temperatur, bei welcher der Versuch durchgeführt wurde. Des Weiteren wurde möglicherweise der Untergrund zu niedrig bestimmt.
+
+\subsection{Sechslinienabsorber}
+
+Für den Sechslinienabsorber wurde ebenfalls die Isomerieverschiebung gemessen. Außerdem wurden das magnetische Moment des angeregten Zustands sowie das Magnetfeld am Kernort berechnet. Die Ergebnisse sind in Tabelle \ref{tab:sechslinien} zu finden.\\
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c|cc}
+		Größe&Messwert&Literaturwert\\\hline
+		$E_\mathrm{iso}\,/\,\si{neV}$&$6,7\pm0,9$&$5,3$ \footnotemark\\
+		$\mu_a\,/\,\mu_N$&$-0,157\pm0,004$&$-0,15531\pm0,00004$ \cite{schatz}\\
+		$B\,/\,\si{T}$&$32,9\pm0,3$&$33,3\pm0,1$ \cite{schatz}
+	\end{tabular}
+	\caption{Messergebnisse für den Sechslinienabsorber}
+	\label{tab:sechslinien}
+\end{table}
+\footnotetext{Dieser Wert wurde dem Datenblatt aus dem Labor entnommen}
+
+Hierbei fällt auf, dass der Wert für die Isomerieverschiebung nur innerhalb von $2\sigma$ mit dem Literaturwert übereinstimmt, die Ergebnisse für das magnetische Moment und das Magnetfeld am Kernort jedoch innerhalb eines $\sigma$ mit dem jeweiligen Literaturwert übereinstimmen.\\
+
+Dies lässt vermuten, dass das Spektrum möglicherweise zusätzlich zur Isomerieverschiebung verschoben ist. Die Ergebnisse sind jedoch insgesamt zufriedenstellend.
